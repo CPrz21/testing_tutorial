@@ -3,8 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 export default function ListItem({item, onDelete, style}) {
     const handlePress = () => {
-        onDelete(item.id)
+        console.log('item.id', item.id);
+        onDelete(item.id);
     }
+
+    const buttonId = (item.value.split(' ').join('')).toLowerCase();
     
     return (
         <View style={[styles.container, style]}>
@@ -12,7 +15,7 @@ export default function ListItem({item, onDelete, style}) {
                 <Text adjustsFontSizeToFit style={styles.text}>{item.value}</Text>
             </View>
             <View style={styles.buttonArea}>
-                <TouchableOpacity style={styles.button} onPress={handlePress}>
+                <TouchableOpacity onPress={handlePress} testID={buttonId} style={styles.button}>
                     <Text style={styles.buttonText}>X</Text>
                 </TouchableOpacity>
             </View>

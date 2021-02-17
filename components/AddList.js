@@ -5,18 +5,20 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Button
 } from 'react-native';
 
-export default function AddList({value, onChange, onPressAdd}) {
+export default function AddList({value, onChange, onPressAdd, testID}) {
   return (
     <View style={styles.container}>
       <TextInput
+        testID={testID}
         placeholder="Write something"
         value={value}
         onChangeText={onChange}
         style={styles.input}
       />
-      <TouchableOpacity onPress={onPressAdd} style={styles.addButton}>
+      <TouchableOpacity testID={"task_add"} onPress={onPressAdd} style={styles.addButton}>
         <Text style={styles.buttonStyles}>+</Text>
       </TouchableOpacity>
     </View>
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     width: 275,
   },
   addButton: {
-    backgroundColor: 'rgb(130, 170, 255)',
+    backgroundColor: 'red',
     paddingVertical: 3,
     paddingHorizontal: 20,
     borderRadius: 50,

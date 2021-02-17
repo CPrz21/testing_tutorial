@@ -34,9 +34,10 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <View testID={"task_view"} style={styles.container}>
       <View style={styles.inputArea}>
         <AddList
+          testID="task_input"
           onPressAdd={handleSetList}
           value={listInput}
           onChange={handleInput}
@@ -53,7 +54,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   inputArea: {
     flex: 2,
